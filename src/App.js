@@ -3,12 +3,6 @@ import './App.css';
 import Emojis from "./emojipedia";
 import Entry from './entry';
 
-function CreateEntry(emoji_term) {
-  return (
-    <Entry id={emoji_term.id} name={emoji_term.name} emoji={emoji_term.emoji} meaning={emoji_term.meaning} />
-  )
-}
-
 function App() {
   return (
     <div>
@@ -16,7 +10,13 @@ function App() {
         <span>emojipedia</span>
       </h1>
       <dl className="dictionary">
-        {Emojis.map(CreateEntry)}
+        {Emojis.map(emoji => {
+          <Entry
+            key={emoji_term.id}
+            name={emoji_term.name}
+            emoji={emoji_term.emoji}
+            meaning={emoji_term.meaning} />
+        })}
       </dl>
     </div>
   );
